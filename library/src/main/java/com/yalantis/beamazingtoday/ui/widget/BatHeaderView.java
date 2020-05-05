@@ -2,11 +2,11 @@ package com.yalantis.beamazingtoday.ui.widget;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
-import android.support.annotation.ColorInt;
-import android.support.annotation.DimenRes;
-import android.support.annotation.DrawableRes;
-import android.support.v4.view.ViewCompat;
-import android.support.v7.widget.AppCompatCheckBox;
+import androidx.annotation.ColorInt;
+import androidx.annotation.DimenRes;
+import androidx.annotation.DrawableRes;
+import androidx.core.view.ViewCompat;
+import androidx.appcompat.widget.AppCompatCheckBox;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -18,7 +18,7 @@ import android.view.animation.OvershootInterpolator;
 import android.widget.Button;
 import android.widget.FrameLayout;
 
-import com.jakewharton.rxbinding.widget.RxTextView;
+import com.jakewharton.rxbinding2.widget.RxTextView;
 import com.yalantis.beamazingtoday.Constant;
 import com.yalantis.beamazingtoday.R;
 import com.yalantis.beamazingtoday.R2;
@@ -31,7 +31,6 @@ import com.yalantis.beamazingtoday.util.TypefaceUtil;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import rx.functions.Action1;
 
 /**
  * Created by galata on 15.07.16.
@@ -72,12 +71,7 @@ public class BatHeaderView extends FrameLayout implements EditListener {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        RxTextView.textChanges(mEditText.getView()).subscribe(new Action1<CharSequence>() {
-            @Override
-            public void call(CharSequence charSequence) {
-                mButtonAdd.setEnabled(!TextUtils.isEmpty(charSequence));
-            }
-        });
+        RxTextView.textChanges(mEditText.getView()).subscribe(charSequence -> mButtonAdd.setEnabled(!TextUtils.isEmpty(charSequence)));
         mButtonAdd.setTypeface(TypefaceUtil.getTypeface(getContext()));
     }
 

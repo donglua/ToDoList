@@ -2,15 +2,13 @@ package com.yalantis.beamazingtoday.ui.widget;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
-import android.support.annotation.ColorInt;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.AppCompatImageView;
+import androidx.annotation.ColorInt;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 
 import com.yalantis.beamazingtoday.R2;
 import com.yalantis.beamazingtoday.util.AnimationUtil;

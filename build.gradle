@@ -1,17 +1,43 @@
 buildscript {
     repositories {
-        jcenter()
+        maven {
+            url 'https://mirrors.huaweicloud.com/repository/maven/'
+        }
+        maven {
+            url 'https://maven.google.com'
+        }
+        maven {
+            url "https://jcenter.bintray.com/"
+        }
+        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.1.3'
-        classpath 'com.jakewharton:butterknife-gradle-plugin:8.2.1'
+        classpath 'com.android.tools.build:gradle:3.6.3'
+        classpath 'com.jakewharton:butterknife-gradle-plugin:10.2.1'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
     }
 }
 
 allprojects {
     repositories {
-        jcenter()
+        maven {
+            url "https://jcenter.bintray.com/"
+        }
+        maven {
+            url "https://mirrors.huaweicloud.com/repository/maven/"
+        }
+        maven {
+            url 'https://maven.google.com'
+            content {
+                includeGroupByRegex "androidx.*"
+                includeGroupByRegex "android\\.arch.*"
+                includeGroupByRegex "com\\.android.*"
+                includeGroupByRegex "com\\.google.*"
+                includeGroup "zipflinger"
+                includeGroup "org.jetbrains.kotlin"
+            }
+        }
+        google()
     }
 }
 
